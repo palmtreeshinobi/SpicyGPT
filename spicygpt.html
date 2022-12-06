@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consult the Spice</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #eee;
+            font-family: 'Courier New', monospace;
+        }
+        .wizard-container {
+            width: 500px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #222;
+            border-radius: 20px;
+            box-shadow: 0 0 10px #333;
+        }
+        .wizard-header {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        a {
+            color: #ffa07a
+        }
+        .personal {
+            width: 500px;
+            display: block;
+            text-align: center;
+            width: 500px;
+            margin: 10px auto;
+            padding: 0px;
+            font-family: 'Arial';
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #eee;
+        }
+        .contact {
+            width: 500px;
+            display: block;
+            text-align: center;
+            width: 500px;
+            margin: 20px auto;
+            padding: 0px;
+            font-family: 'Arial';
+            font-size: 1em;
+            line-height: 1.1;
+            color: #eee;
+        }
+        .question-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .question-form input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .question-form input[type="submit"] {
+            width: 30%;
+            padding: 10px;
+            font-size: 1.2em;
+            background-color: #eee;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .question-form input[type="submit"]:hover {
+            background-color: #ccc;
+        }
+        .answer {
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wizard-container">
+        <div class="wizard-header">
+            Consult the Bene Gesserit
+        </div>
+        <form class="question-form" action="" method="post">
+            <input type="text" name="question" placeholder="Ask the spice for guidance...">
+            <input type="submit" value="Submit">
+        </form>
+        <div class="answer">
+            The spice reveals all...
+        </div>
+    </div>
+    <div class="personal">
+        <p>
+            This was a little project I played around with where I asked OpenAI's ChatGPT to code a Herbert Frank inspired (Dune) magic 8 ball web application using HTML, CSS, and Javascript. The best part is, I don't even really know HTML, CSS, or Javascript. I know enough Python to get by but I would say ChatGPT has massively expanded my develper capabilities. I'm excited to take on more ambitious projects and leverage this new tech!
+        </p>
+    </div>
+    <div class="contact">
+            <p><a href="https://twitter.com/palmtreeshinobi">Follow Me on Twitter</a></p>
+            <p><a href="https://twitter.com/OpenAI">Creds to OpenAI for doing the heavy lifting</a></p>
+            <p><a href="https://twitter.com/dunemovie">Shoutout to the Dune series</a></p>
+    </div>
+    <script>
+        // Get references to the elements we will need
+        var questionForm = document.querySelector('.question-form');
+        var questionInput = document.querySelector('input[name="question"]');
+        var answerDiv = document.querySelector('.answer');
+    
+        // Create an array of answers in the style of Frank Herbert
+        var answers = [    "The sand reveals all, as the winds of Arrakis teach us. It is certain.",    "The winds of Arrakis have spoken, and they say it is so. It is decidedly so.",    "The future is always in motion, like the shifting dunes of Arrakis. But without a doubt, this is the path you must follow.",    "Yes, my child - definitely. The winds of Arrakis have shown me the truth.",    "You may rely on it, as the sandworms of Arrakis are reliable guides. They will lead you to your destiny.",    "As I see it, yes. The spice has shown me the way.",    "Most likely, the future is a mystery. But the spice reveals all, and it shows that this is the path you must follow.",    "Outlook good, my child. The spice will guide you to greatness.",    "Yes, the future is yours to shape. Let the spice be your guide.",    "The sand reveals all, and the signs point to yes. This is the path you must follow.",    "The future is cloudy, like the skies of Arrakis. Reply hazy, try again.",    "The spice has many secrets, and they are not for me to reveal. Ask again later.",    "Better not tell you now, my child. The future is always in motion, and it is not for me to say.",    "Cannot predict now, the sands are always shifting. But trust in the spice, and it will guide you.",    "Concentrate on your path, and the spice will guide you. Ask again, and it will reveal the answer.",    "Don't count on it, my child. The spice is a fickle mistress, and she does not always show the way.",    "The winds of Arrakis have spoken, and my reply is no. This is not the path you must follow.",    "My sources say no, the spice does not reveal this path to greatness. Look to the sand for your answer.",    "Outlook not so good, my child. The spice does not show this path to be prosperous. Look to the sand for guidance.",    "Very doubtful, the winds of Arrakis do not favor this path. Look to the sand for the truth."];
+    
+        // Listen for the "submit" event on the form
+        questionForm.addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+    
+            // Get the user's question
+            var question = questionInput.value;
+    
+            // Use the wizard's all-knowing powers to answer the question
+            var answer = answers[Math.floor(Math.random() * answers.length)];
+    
+            // Show the answer to the user
+            answerDiv.innerHTML = answer;
+        });
+    </script>
+    
+</body>
+</html>
